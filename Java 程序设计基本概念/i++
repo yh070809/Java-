@@ -1,0 +1,55 @@
+
+import java.util.*
+
+
+public class Test {
+    
+    public static void main (String[] args){
+        int i=0;
+        i=i++ + ++i;
+
+        int j=0;
+        j=++j + j++ + j++ + j++;
+        
+        int k=0;
+        k=k++ + k++ + k++ + ++k;
+
+        int h=0;
+        h=++h + ++h;
+
+        int p1=0,p2=0; int q1=0,q2=0;
+        q1=++p1;
+        q2=p2++;
+
+        System.out.println("i" + i);
+        System.out.println("j" + j);
+        System.out.println("k" + k);
+        System.out.println("h" + h);
+        System.out.println("p1" + p1);
+        System.out.println("p2" + p2);
+        System.out.println("q1" + q1);
+        System.out.println("q2" + q2);
+    
+    }
+}
+
+
+解析： i++  和 ++i  的不同在于 一个是程序完毕之后的自增， 一个是程序开始前的自增。
+
+i=i++ + ++i; 执行的过程是首先执行 i++， 但是 i 自增 1 操作是稍后才执行的，所以此时的i 还是0，然后执行 ++i， ++i 后的值是1， 执行完 ++i 后i 的值是1， 执行完 ++i之后 需要补增 i++， 
+所以此时 i的值实际上是2， 0+2=2， 然后再赋值给i， 最终i 的值是2
+
+j=++j + j++ + j++ + j++; 首先执行的是 ++j， 所以j 的值是1，然后执行j++, j++后的值是任然是1， 然后再执行j++， 执行后的结果任然是1，但是要补增刚才j++,所以此时的j 实际上是2， 然后再执行j++ ，执行后的结果任然是2，但是要补增刚才的j++， 所以此时的j 实际上是3， 所以1+1+2+3 =7
+最终赋值给j，j的结果是7
+
+
+k=k++ + k++ + k++ + ++k;  执行的过程是先执行 k++，所以k的值是0， 然后执行k++， k++的值任然是0，但是要补增刚才的k++， 所以此时的k等于1，然后再执行一个k++， 执行之后的结果仍然wei1，但是要补增刚才的k++，所以此时的k等于2，最后执行 ++k，执行的结果等于3，
+再补增刚才的k++， k的结果实际上是4，
+所以 0+1+2+4 =7
+
+
+
+h=1+2 =3
+
+
+p1=1,p2=1,q1=1,q2=0
