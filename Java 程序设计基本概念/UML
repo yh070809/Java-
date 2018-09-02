@@ -1,0 +1,59 @@
+Which is true about UML 
+
+A UML is a standardlized approach for use case modeling (UML 是用例模型的标准接口)
+
+B. UML supplies a set of notations used in the design of application (UML 是一种应用软件设计使用方法的标记)
+
+C.UML is a mehodology for designing and maintaining computer systems (UML 是一种用来设计和维护计算机系统的方法)
+
+D.UML stands for Unified Modeling Language (UML 代表同意建模语言)
+
+Answer ： D
+
+
+
+
+when using the writeObject method to store the state of n object, how can you protect senestive data from being accessed in the stored object?
+(如何保证敏感信息不被存储对象访问 ？)
+
+A.Declare the sensitive fileds as public
+B. Declare the sensitive filed as private transistent 
+C. Declare the sensitive filed as static 
+D. Declare the sensitive filed fileds as protected 
+
+
+Answer : B
+
+对于关联端点 （Association End）的表述， 不正确的选择是哪个？ 
+A. 关联端点是关联的一个结构部分， 他定义了在关联中类的参与
+B.在同一个关联中一个类可以连接到多个端点
+C.在关联中的关联端点有不同的位置而且有名字吗并且通常是可以互换的
+D.关联端点一旦脱离他的关联独立存在也不在有含义
+
+
+
+解析： 关联是两个或者多个特定类元之间的关系， 他描述了这些类元的实例的联系。参与其中的类元在关联内的位置有序。 在一个关联中同一个类可以出现在多个位置上
+关联的每个实例（链接）是引用对象的有序表 关联的外延即这种连接的一个集合。
+在连接集合中给定的对象可以出现多次，或者在关联的定义允许的情况下可以在同一个链中（在不同位置）出现多次
+关联将一个系统组织在一起 如果没有关联只有一个无链接类的集合
+
+关联的结构
+
+关联可以有一个名称， 但是他的大部分描述建立在关联端点中， 每个端点描述了关联中类对象的参与。关联对象端点只是关联描述的一部分，不是可区分的语义或是可用符号表示的概念
+
+
+关联的名称
+关联可以有一个名称，在包含的所有关联和类中， 他必须是唯一的（关联类即时一个关联又是一个类，所以关联和类分享同一个命名空间）关联不是必须要有一个名称， 他的端点的角色名称提供了在同一个类中辨别多个关联的另一种途径 按照习惯名字以类在表中出现的顺序读出： employee 为company 工作，salesman 卖car 给消费者
+
+
+关联的端点：关联包含一张有多个关联端点的有序表（也就是说，这些端点是可以被区分的并且是不可被替换的）每个关联端点定义了在关联中给定位置的一个类 （角色的参与）。同一个类可以出现在多个位置上，且位置通常是不可交换的
+
+
+在UML语言中， 位置的关系被称为链， 链在系统执行过程中可以被创建和销毁 服从每个关联端点可变性的限制
+
+
+
+
+ANswer ： B
+
+
