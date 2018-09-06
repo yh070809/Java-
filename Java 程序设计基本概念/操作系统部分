@@ -1,0 +1,63 @@
+which of the following best describes a multitasking operating system(多任务操作系统描述正确的是？)
+
+
+A.An Operating System that can run multiple tasks concurrently on multiple CPUs
+(多个CPU上同时运行多个任务)
+
+B.An Operating System that can run single taksj concurrently across multiple CPU
+(多个CPU 上运行同一个任务)
+
+C.An Operating System that can run multiple taks concurrently on a Single CPU
+(1个CPU上执行多个任务)
+
+D.An operating system that constantly switches CPU time between loaded processes
+(一个CPU上运行一个任务)
+
+
+
+正确答案： C
+
+
+先解释两个概念：   多用户和多任务
+
+多用户： 允许同一时间内很多人使用同一部机器， 只要每个使用者都有自己的终端（terminal）
+
+多任务： 为了使很多程序可以一起同时运行， 这个特点叫做多任务
+
+多任务又分为协同式多任务和抢占式多任务
+
+协同式多任务： 在一个多任务处理环境下，只有当其他程序认可时，一个运行程序才可以获得处理机时间。 每个程序必须协同的放弃对处理器的控制。 以便其他应用程序运行
+
+
+抢占式多任务： 多任务处理的一种形式， 必要的时候，系统可以中断当前的任务，以便运行另外一个任务
+
+那么CPU 的多任务抢占机制是如何实现的？
+CPU 是通过设置时间中断来实现抢占机制的， 在进入保护模式之前， 先初始化中断向量表，在诗中中断入口放置任务切换代码，然后设置好时钟中断时间
+
+当某一线程的执行用光了时间片的时候， 时钟中断产生，CPU 转去执行中断处的任务切换代码，保存当前线程的状态，得到并恢复下一个线程的状态，然后转去执行那个线程，以此类推
+
+
+
+为了尽量的提高CPU 的利用率， 当某一个线程必须转入等待状态，如要获取某一低速外设的数据的时候，这里的读操作会主动放弃当前没有用光的时间片段，主动调用任务切换中断代码， 把CPU的时间让给其他已经准备好可以继续的线程
+
+which permission, when applied to a directory in the file system , will allow a user to enter the directory ?
+
+
+A. Read B Write C Excute D Access COntrol (访问控制权限)
+
+
+IA 硬件架构， LInux 32 为操作系统下， 一个应用层的程序最多能分配和访问的内存大小是哪一个？
+
+A 1GB B.2GB C 3GB 4 4GB
+E 8GB F 硬件支持多少就能访问多少
+
+
+所有的32位应用程序都有4GB 的进程地址空间 因为32位地址最多可以映射4GB 的内存  
+
+对于windows 应用程序可以访问2GB的进程地址空间（32位Linux 可以访问3GB地址空间）
+
+这就是被称为用户模式的虚拟地址空间 这2gb 的用户模式与你地址空间位于4GB地址空间的低一半 
+而与之相对应的高一半2GB地址空间由操作系统内核使用， 因此被称为内核模式的虚拟地址空间。 在一个进程中， 所有的进程读共享相同的2GB用户模式的虚拟地址空间
+
+
+为了缓解地址空间的不足， 微软提供了一个权益的解决方案， 所有从windows 2000 server开始的操作系统版本都提供了一个boot.ini的启动开关（一般大小为3GB）可以为应用程序提供访问3GB的进程地址空间的能力
