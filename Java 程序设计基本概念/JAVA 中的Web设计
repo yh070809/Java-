@@ -38,3 +38,41 @@ JSP 有哪些动作  ？ 它们的作用分别是什么
  jsp: forward: 把请求转到另外一个页面
  jsp: plugin : 根据浏览器类型为Java 插件生成OBJECT 或者EMBED 标记
  
+
+JSP 中动态INCLUDE 和静态 INCLUDE 的区别有哪些呢？
+动态 INCLUDE 用jsp：include 动作实现   如下面这行代码 它总是会检查所含文件中的变化 
+适合用于包含动态页面 并且可以带参数
+
+<jsp : include page="include.jsp" flush="true">
+
+静态INCLUDE 用include 伪代码实现 如下面这行代码不会检查所含文件的变化 适用于包含静态页面 
+<%@ include file ="include.htm"%>
+
+
+两种跳转方式分别是什么 ？ 有什么区别？ 
+两种跳转方式分别如下： 
+<jsp: include page = "include.jsp" flush ="true">
+<jsp: forward page = "nextpage.jsp" >
+
+前者页面不会转向include 所指的页面  只是显示该页的结果  主页面 还是原来的页面   执行完以后还会回来 相当于函数调用 并且可以带参数  后者完全转向新页面 不会再回来
+
+相当于GOTO语句
+
+
+
+
+
+
+下面不属于JSP 内置对象的是 （） ？
+A. Config  B. page  C. cookie D. exception 
+JSP 共有 以下9种基本内置组件
+1.request： 用户端请求 此请求会包含来自GET/POST请求的参数
+
+2. response ： 网页传回用户端的回应
+3.pageContext：  网页的属性是在这里管理的
+4. session： 与请求有关的会话期
+5. application servlet ： 正在执行的内容
+6. out ：用来传送回应的输出
+7. config : servlet  的构架部件
+8.page ： JSP网页本身
+9.exceptio： 针对网页错误， 未捕捉的例外
