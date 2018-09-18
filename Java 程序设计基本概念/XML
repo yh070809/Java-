@@ -1,0 +1,42 @@
+JavaScript 
+
+
+以下代码有什么区别
+var a =[]
+var a= {}
+
+答案： 一个是数组对象类似 var a = new Array(); 一个是对象  类似 var a = new Object
+
+
+XML
+ 
+
+ XML 和HTML 有什么区别
+
+ 解析： XML 与HTML 的书写格式十分相似  这是因为 XML  与HTML 都是标准的通用标记语言 （SGML） 的下一代语言  写法虽然类似 两者却有着重要的区别  大家可以理解为  HTML  是描述文本结构和式样的
+
+ 主要用于文本的显示和控制   而XML 是一个协议语言  用来描述数据和数据结构的  是一种描述数据的标准  同时必须依赖高级语言才能实现其作用
+
+ 一个XML 文档是由一些简单或者复杂的元素构成的 其结构与HTML 基本相同  都包含元素属性 和值  XML 元素都是一个标签开始 并用一个相应的标签结束  复杂元素中可以包含子元素 而简单元素中就只能包含属性和内容
+
+
+ 在XML 文档与HTML 文档的写法规范中  存在以下差别：
+
+ 1.XML 文档中区分大小写 而HTML 文档并不区分
+ 2.HTML 文档中当存在列表键的时候 可以省略结尾标记  而在XML 文档中 所有的标记都不能省略
+ 3. 在XML 文档中  属性值必须写在引号内 而在HTML 文档中并没有严格的要求
+
+<?xml version ="1.0" encoding="gb2321">
+ <people>
+     <person>
+         <name>Zhang San</name>
+         <sex>male</sex>
+         <age>24</age>
+     </person>
+
+     <person>
+         <name>Lisi</name>
+         <sex>female</sex>
+         <age>22</age>
+     </person>
+ </people>
