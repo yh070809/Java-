@@ -1,0 +1,5 @@
+A database schema is a logical container for data structures, called schema objects. Examples of schema objects are tables and indexes. Schema objects are created and manipulated with SQL.
+
+A database user has a password and various database privileges. Each user owns a single schema, which has the same name as the user. The schema contains the data for the user owning the schema. For example, the hr user owns the hr schema, which contains schema objects such as the employees table. In a production database, the schema owner usually represents a database application rather than a person.
+
+Within a schema, each schema object of a particular type has a unique name. For example, hr.employees refers to the table employees in the hr schema. Figure 2-1 depicts a schema owner named hr and schema objects within the hr schema.
