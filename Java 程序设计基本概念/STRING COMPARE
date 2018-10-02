@@ -1,0 +1,91 @@
+There are several ways to approach this challenge, but our approaches follow similar sequences of steps.
+
+Approach: Using the compareTo Method
+Initialize  and  to the first substring of length  in string . This covers the corner case where they are both the same string (i.e.,  is the length of string ).
+Iterate through the string creating all possible substrings. At each step, we compare the substring to  and using the compareTo method:
+If  is lexicographically smaller than , assign the value of  to .
+If  is lexicographically larger than , assign the value of  to .
+After checking all possible substrings, return the newline-separated values of  and  as a single string.
+Approach: Using a Sorted Collection
+Iterate through the string creating all possible substrings. At each step, we add the substring to a list of all substrings.
+After adding all possible substrings to the list, sort the list using a built-in function such as Collections.sort.
+Set  as the first element in the sorted collection and  as the last element in the sorted collection.
+Return the newline-separated values of  and  as a single string.
+Because every substring must have length , we know the total number of possible substrings and can also approach this challenge using an array.
+
+Solutions
+import java.util.*;
+
+public class Solution {
+    
+    public static String getSmallestAndLargestCompareTo(String s, int k) {
+        String substring = s.substring(0, k);
+        String smallest = substring;
+        String largest = substring;
+        
+        for (int i = 1; i <= s.length() - k; i++) {
+            // Create a substring of length 'k'
+            substring = s.substring(i, i + k);
+                
+            // If current substring is lexicographically smaller than 'smallest'
+            if (substring.compareTo(smallest) < 0) {
+                smallest = substring;
+            }
+            
+            // If current substring is lexicographically larger than 'largest'
+            if (substring.compareTo(largest) > 0) {
+                largest = substring;
+            }
+        }
+        
+        return smallest + "\n" + largest;
+    }
+  
+    public static String getSmallestAndLargestList(String s, int k) {
+        Vector<String> substrings = new Vector<String>();
+        
+        for (int i = 0; i <= s.length() - k; i++) {
+            // Add a substring of length 'k' to our list
+            substrings.add( s.substring(i, i + k) );    
+        }
+        
+        // Sort list
+        Collections.sort(substrings);
+        
+        // Set first and last elements as smallest and largest
+        String smallest = substrings.get(0);
+        String largest = substrings.get(substrings.size() - 1);
+        
+        return smallest + "\n" + largest;
+    }
+    
+    public static String getSmallestAndLargestArray(String s, int k) {
+        // Because each substring has length 'k', we know the number of possible substrings
+        String[] substrings = new String[s.length() - k + 1];
+        
+        for (int i = 0; i <= s.length() - k; i++) {
+            // Add a substring of length 'k' to our array
+            substrings[i] =  s.substring(i, i + k); 
+        }
+        
+        // Sort array
+        Arrays.sort(substrings);
+        
+        // Set first and last elements as smallest and largest
+        String smallest = substrings[0];
+        String largest = substrings[substrings.length - 1];
+        
+        return smallest + "\n" + largest;
+    }
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        String s = scan.next();
+        int k = scan.nextInt();
+        scan.close();
+      
+        System.out.println(getSmallestAndLargestCompareTo(s, k));
+        System.out.println(getSmallestAndLargestList(s, k));
+        System.out.println(getSmallestAndLargestArray(s, k));
+    }
+}
