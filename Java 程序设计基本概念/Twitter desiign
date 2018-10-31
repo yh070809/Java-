@@ -1,0 +1,72 @@
+系统设计题 Design Twitter/Facebook/Weibo
+
+
+1. login/register 
+2. following / follower 
+3. timeline
+4. peak value
+
+从前有个培训机构叫太阁 
+SNAKE 原则
+
+Scenario - Necessary - Application - Kilobit - Evolve 
+
+先说哪里用得到 -->
+
+再说我们需要解决的问题多大规模 -->
+
+然后说基本解里面 Application 里面都有啥 -->
+
+然后说说相应的数据放在哪里 -->
+
+最后这些都说完了,具体谈谈基本解在哪些方面可以做得更好
+ 
+
+从前有个培训机构叫九章
+
+Scenario - Service - Storage - Scale
+
+先说要解决什么问题 哪里用得到 -->
+
+再说一个大系统怎么写对应的micro service -->
+
+数据怎么放 -->
+
+怎么上scale
+
+
+关于Scenario 
+1.要问自己做哪些功能
+2.要说清除请 用户量有多大
+（平均值 和峰值）
+twitter： DAU 10M
+
+facebook: DAU 1.2B
+
+weibo: MAU 340M, DAU 11M
+把自己要的东西算出来  QPS啊 size啊 不非得一口气算完 但是需要记住基本的用户量
+3. 自己把自己要算的东西算出来 QPS   存储size 不用一下写完 但是要记住基本用户量
+
+4.搭架子 搞清楚组件  
+保证这个东西可以work  
+
+5 如果发现问题   改架子 
+
+6. 架子流程完全实现了数据怎么放 数据库怎么建  
+
+7. 根据确认的问题或者优化点慢慢优化 
+
+
+关键点是？  人和帖子？
+
+人需要几个service？ 好友管理和用户登陆
+
+帖子需要几个service？帖子管理和大文件存储
+
+所以一共？四个service
+
+
+User Service  Potsting Service  Friendship Service  Attachment Service 
+
+
+
