@@ -1,0 +1,88 @@
+For this problem, we have  types of queries you can perform on a List:
+
+Insert  at index :
+
+Insert
+x y
+Delete the element at index :
+
+Delete
+x
+Given a list,L, of N integers, perform Q queries on the list. Once all queries are completed, print the modified list as a single line of space-separated integers.
+
+Input Format
+
+The first line contains an integer, N (the initial number of elements in L). 
+The second line contains N space-separated integers describing L. 
+The third line contains an integer, Q (the number of queries). 
+The 2Q subsequent lines describe the queries, and each query is described over two lines:
+
+If the first line of a query contains the String Insert, then the second line contains two space separated integers x y, and the value  must be inserted into L at x index .
+If the first line of a query contains the String Delete, then the second line contains index x , whose element must be deleted from L.
+Constraints
+
+
+
+Each element in is a 32-bit integer.
+Output Format
+
+Print the updated list  as a single line of space-separated integers.
+
+Sample Input
+
+5
+12 0 1 78 12
+2
+Insert
+5 23
+Delete
+0
+Sample Output
+
+0 1 78 12 23
+Explanation
+ L=[12,0,1,78,23]
+
+ InsQ0:insert 23 at index . 
+
+ L=[12,0,1,78,12,23]
+
+ Delete the element at index 0.
+ L1 =[0,1,78,12,23] 
+
+Having performed all  queries, we print  as a single line of space-separated integers.
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+  Scanner st = new Scanner(System.in);
+  LinkedList < Integer > LL = new LinkedList < Integer > ();
+  int n = st.nextInt();
+  for (int i = 0; i < n; i++) {
+   int p = st.nextInt();
+   LL.add(p);
+  }
+  int q = st.nextInt();
+  while (q--> 0) {
+   st.nextLine();
+   String s = st.nextLine();
+   if (s.equals("Insert")) {
+    int index = st.nextInt();
+    int num = st.nextInt();
+    LL.add(index, num);
+   } else {
+    int num = st.nextInt();
+    LL.remove(num);
+   }
+  }
+
+  Iterator itr = LL.iterator();
+  while (itr.hasNext()) {
+   System.out.print(itr.next() + " ");
+  }
+  System.out.println("\n");
+ }
+}
