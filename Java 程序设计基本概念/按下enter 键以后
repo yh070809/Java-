@@ -1,0 +1,24 @@
+按下「g」键
+回车键按下
+产生中断（非 USB 键盘）
+(Windows) 一个 WM_KEYDOWN 消息被发往应用程序
+(Mac OS X) 一个 KeyDown NSEvent 被发往应用程序
+(GNU/Linux)Xorg 服务器监听键码值
+解析 URL
+输入的是 URL 还是搜索的关键字？
+转换非 ASCII 的 Unicode 字符
+检查 HSTS 列表
+DNS 查询
+ARP 过程
+使用套接字
+TLS 握手
+HTTP 协议
+HTTP 服务器请求处理
+浏览器背后的故事
+浏览器
+HTML 解析
+CSS 解析
+页面渲染
+GPU 渲染
+Window Server
+后期渲染与用户引发的处理
