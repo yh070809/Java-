@@ -1,0 +1,56 @@
+基本概念
+JIRA的界面操作挺复杂，但是JIRA的逻辑并不复杂。想要了解如何使用JIRA，弄清下面几个基本概念就差不多了：
+
+Project 项目
+Issue 事务（有的译作“问题”）
+Field 字段
+Workflow 工作流
+Screen 视图
+
+1. Project和Issue
+Project这个概念很简单，就是一个“项目”。开发一个App是一个项目，开发一个微信小程序也是一个项目，公司办公室搬迁也可以是一个项目。可以说，在项目管理范畴内可以看作“项目”的，都是Jira中的项目。Project是Issue的容器。在创建项目时，JIRA会要求你指定“KEY”，这个KEY加上数字，就是Issue的唯一ID了。比如新建一个项目，KEY设置为WEB，那么项目下的第一条Issue就是WEB-1，第二条Issue是WEB-2，依此类推。
+
+而Issue则是Jira核心中的核心，它分为以下几种类型：
+
+Story 故事（即敏捷开发中的“用户故事”）
+Epic 史诗
+Improvement 提升
+New Feature 新特性
+Bug 缺陷
+Task 任务
+Sub-Task 子任务 
+以上几种类型，除Sub-Task和Epic之外并无本质区别。对于敏捷开发团队来说，“用户可以编辑并修改个人资料”可以建一个Story；对职能部门来说，“月底向供应商支付货款”可以建一个Task。如果想反过来，把前者叫Task把后者叫Story，Jira也不会干涉你，无非会让其他人觉得奇怪而已。
+
+Epic中文叫“史诗”，人话版的翻译是“包含很多故事的大故事”。比如“用户可以在App上收听音乐”，就是一个很大的故事，还需要细分为更多小故事才可以进行开发。
+
+除了Sub-Task之外，所有的Issue类型都可以创建Sub-Task。比如“用户可以编辑并修改个人资料”就可以拆分为以下几个子任务：
+
+设计UI界面
+开发前端页面
+提供后端API接口
+以上所有子任务完成之后，这个Story才能算完成。
+2. Field
+一个Story会有属性：名称、详细描述、提交人、提交时间、优先级、状态等等。这些属性就是Field字段。而所谓的Story，也是Type属性为“Story”的Issue而已，把Type属性改成“Epic”，那这个Story就会变成Epic了。
+
+3. Workflow和Workflow Scheme
+我们知道，任务会有不同的状态：待办，进行中，已完成；需求也会有不同的状态：刚提交，待评审，暂缓，已拒绝，开发中，已完成，等等。Workflow就是用来定义定义Issue的状态。
+
+Workflow由两部分组成：
+
+Status 状态
+Transition 转换动作
+下图中的按钮样式就是Status，从一种状态转换为另一种状态的箭头就是Transition。
+
+一个典型工作流
+从一种状态切换到另外一种状态必须借助Transition。JIRA提供了方便的配置项，可以自动生成Transition（允许所有状态切换到当前状态）。
+
+为什么做得这么麻烦，像Tower或者Worktile之类的清单不好吗？答案就是Transition有专门的配置项，可以调起webhook以及执行一些post-function比如发送邮件等等。而且严格的Transition可以避免人为的误操作。
+
+当有了Workflow之后还不够。一个Project内会有不同类型的Issue，这时候就需要指定哪种Issue Type采用哪种Workflow，于是就产生了Workflow Scheme。比如下面就是一个Workflow Scheme：
+
+Story：To Do - In Progress - In Review - Done（Workflow 1）
+Task： To Do - In Progress - Done （Workflow 2）
+……
+显然，每个Project只能采用一种Workflow Scheme。
+
+注意，整个JIRA中的Status都是共用的。当你在编辑某个Workflow时修改了一个已有Status的名称，其他Workflow中同样的Status也会被修改。
