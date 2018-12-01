@@ -1,0 +1,13 @@
+Nested Class 和Inner  Class 的不同
+
+Nested Class 一般是C++ 的说法  是合成型聚集关系 （Composite Aggregation） 的另一种表达方式 也就是说 nested class 也可以用aggregation 表达出来 但是 nested class 更加精准的表达了一种专用的 紧耦合的关系 尤其在代码生成的时候 nested class 在java 中 映射成inline class 比如计算机专用开关电源类可以作为计算机类的nested class 但是电池组类就不一定适合做那个nested class 因为电池组类表达的是一个通用对象
+
+Class A nested in Class B 
+
+说明A是一个nested class 一般A是用来完成B中的某些重要功能
+
+
+
+Inner Class 
+
+静态内部类(Inner Class) 意味着创建一个static内部类的对象 不需要一个外部类对象不能从一个static 内部类的一个对象访问一个外部类的对象
